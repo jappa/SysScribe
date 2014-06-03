@@ -78,7 +78,7 @@ def size(device):
     nr_sectors = open(device+'/size').read().rstrip('\n')
     try:
         sect_size = open(device+'/queue/hw_sector_size').read().rstrip('\n')
-    except:
+    except: # For rh5.4 need the following
         sect_size = open(device+'/queue/max_sectors_kb').read().rstrip('\n')
 
     # The sect_size is in bytes, so we convert it to GiB and then send it back
