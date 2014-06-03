@@ -11,5 +11,5 @@ python setup.py install
 
 Example:
 
-from sysscribe import system
+from sysscribe import system  
 print system.system_dict()
