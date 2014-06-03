@@ -1,5 +1,5 @@
 import platform
-
+import os
 from collections import OrderedDict
 import pprint
 
@@ -30,6 +30,14 @@ def cpuinfo():
                     procinfo[line.split(':')[0].strip()] = ''
             
     return cpuinfo
+
+
+def pciinfo():
+    pciinfo=OrderedDict()
+    with os.popen('/sbin/lspci') as f:
+        for line in f:
+            pciinfo[line.split(' ')[0]] = line.split(':',1)[1].strip()
+    return pciinfo
 
 def meminfo():
     ''' Return the information in /proc/meminfo
@@ -78,3 +86,11 @@ def detect_devs():
         for pattern in dev_pattern:
             if re.compile(pattern).match(os.path.basename(device)):
                 print('Device:: {0}, Size:: {1} GiB'.format(device, size(device)))
+                
+def detect_dev_sizes():
+    dev_size=[]
+    for device in glob.glob('/sys/block/*'):
+        for pattern in dev_pattern:
+            if re.compile(pattern).match(os.path.basename(device)):
+                dev_size.append(size(device))
+    return dev_size
