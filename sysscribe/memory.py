@@ -2,8 +2,8 @@
 from sysscribe import meminfo
 
 def total():
-    meminfo = meminfo()
-    return meminfo['MemTotal']
+    meminf = meminfo()
+    return meminf['MemTotal']
 
 def print_total():
     print('Total memory: {0}'.format(total()))
