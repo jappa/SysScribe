@@ -3,6 +3,10 @@ import os
 from collections import OrderedDict
 import pprint
 
+VERSION = (0, 1, 0)
+__version__ = '.'.join(map(str, VERSION)) + '-dev'
+
+
 def cpuinfo():
     ''' Return the information in /proc/cpuinfo
     as a dictionary in the following format:
