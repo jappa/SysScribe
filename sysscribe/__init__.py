@@ -36,7 +36,7 @@ def pciinfo():
     pciinfo=OrderedDict()
     with os.popen('/sbin/lspci') as f:
         for line in f:
-            pciinfo[line.split(' ')[0]] = line.split(':',1)[1].strip()
+            pciinfo[line.split(' ')[0]] = line.split(' ',1)[1].strip()
     return pciinfo
 
 def meminfo():
