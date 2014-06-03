@@ -6,6 +6,7 @@ from sysscribe import cpu
 from sysscribe import memory
 from sysscribe import network
 from sysscribe import disk
+from sysscribe import pci
 
 def system_dict():
     
@@ -34,6 +35,12 @@ def system_dict():
     sysinfo['disk'] = OrderedDict()
     sysinfo['disk']['num devices'] = len(disk_sizes)
     sysinfo['disk']['device size'] = disk_sizes
+    
+    # Pci info
+    pci_list = pci.pci_list()
+    sysinfo['pci'] = OrderedDict()
+    sysinfo['pci']['num devices'] = len(pci_list)
+    sysinfo['pci']['device size'] = pci_list
     
     return sysinfo
     
