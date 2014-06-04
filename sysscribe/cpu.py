@@ -15,6 +15,6 @@ def print_list():
 def get_cores_per_socket():
     cpuinf = cpuinfo()
     for processor in cpuinf.keys():
-        return cpuinf[processor]['cpu cores'])
+        return cpuinf[processor]['cpu cores']
     
     return 0
