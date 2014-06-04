@@ -26,6 +26,7 @@ def system_dict():
     sysinfo['cpu'] = OrderedDict()
     sysinfo['cpu']['num cores'] = len(cpu_list)
     sysinfo['cpu']['socket type'] = cpu_list[0]
+    sysinfo['cpu']['cores per socket'] = cpu.get_cores_per_socket()
     
     # Add memory info
     sysinfo['memory'] = OrderedDict()
