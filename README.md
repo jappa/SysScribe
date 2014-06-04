@@ -4,7 +4,7 @@ SysScribe
 Records system setup as a python dictionary without requiring elevated privileges
 
 Tested platforms:  
-1. RHEL 5.4
+1. RHEL 5.4  
 2. RHEL 6.4
 
 Installation:
