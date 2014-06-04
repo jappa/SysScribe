@@ -101,3 +101,18 @@ def detect_dev_sizes():
             if re.compile(pattern).match(os.path.basename(device)):
                 dev_size.append(size(device))
     return dev_size
+
+
+def product():
+    vendor_str="unknown"
+    try:
+        with open('/sys/devices/virtual/dmi/id/product_name') as f:
+            vendor_str = f.readline()
+    except:
+        pass
+    return vendor_str        
+    
+
+def echo():
+    from sysscribe import system
+    print system.system_dict()

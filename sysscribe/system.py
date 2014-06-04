@@ -7,17 +7,24 @@ from sysscribe import memory
 from sysscribe import network
 from sysscribe import disk
 from sysscribe import pci
+from sysscribe import product
+
+
 
 def system_dict():
     
     sysinfo=OrderedDict()
+    
+    # Hardware product
+    sysinfo['product'] = product()
 
+    # OS platform
     sysinfo['platform'] = platform.uname()
 
     # Add cpu info dict
     cpu_list = cpu.dev_list()
     sysinfo['cpu'] = OrderedDict()
-    sysinfo['cpu']['num sockets'] = len(cpu_list)
+    sysinfo['cpu']['num cores'] = len(cpu_list)
     sysinfo['cpu']['socket type'] = cpu_list[0]
     
     # Add memory info
@@ -41,6 +48,8 @@ def system_dict():
     sysinfo['pci'] = OrderedDict()
     sysinfo['pci']['num devices'] = len(pci_list)
     sysinfo['pci']['device size'] = pci_list
+    
+    
     
     return sysinfo
     

@@ -1,9 +1,11 @@
 SysScribe
 =========
 
-Records system setup as a python dictionary
+Records system setup as a python dictionary without requiring elevated privileges
 
-Note only tested in RedHat Linux
+Tested platforms:  
+1. RHEL 5.4
+2. RHEL 6.4
 
 Installation:
 
@@ -12,6 +14,6 @@ python setup.py install
 Example:
 
 ```python
-from sysscribe import system  
-print system.system_dict()
+import sysscribe 
+sysscribe.echo()
 ```
