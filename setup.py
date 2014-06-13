@@ -37,8 +37,15 @@ setup(
     name='SysScribe',
     version=get_package_version(),
     packages=find_packages(exclude=['tests', 'tests.*']),
+    author='Zenotech',
+    author_email='admin@zenotech.com',
     license='BSD',
-    url='https://github.com/jappa/sysscribe',
+    url='https://github.com/zenotech/SysScribe',
     classifiers=classifiers,
+    description='Records system setup as a python dictionary',
     long_description=open('README.md').read(),
+    include_package_data=True,
+    package_data = {
+        '': ['*.md',]
+    },
 )
